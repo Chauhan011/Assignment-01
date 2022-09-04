@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=ju, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        input[type="text"] {
+            width: 200px;
+        }
+        button {
+            background-color: #00f;
+        }
+        form {
+            border: 1px solid black;
+            width: 400px;
+            margin: 20px auto;
+        }
+        td {
+            padding: 10px;
+        }
+        td:first-child{
+            text-align: right;
+            font-weight: bold;
+        }
+        button {
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+    <script>
+        function validate(){
+            let form = document.select_source;
+            var Provie_a_name_for_pipeline = document.select_source.Provie_a_name_for_pipeline;
+            var GCS_project_name = document.select_source.GCS_project_name;
+            var GCS_bucket_name = document.select_source.GCS_bucket_name;
+            var Input_Cloud_Storage_Fie = document.select_source.Input_Cloud_Storage_Fie;
+            var GCS_Credentials = document.select_source.GCS_Credentials;
+            var Run_every = document.select_source.Run_every;
+            
+            
+            var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+              if (Provie_a_name_for_pipeline.value.match(specialChars)) {
+                alert ("Only characters A-Z, a-z and 0-9 are allowed!")
+                name.focus();
+                return false;
+            }
+            
+            if(Provie_a_name_for_pipeline.value.length < 5) {
+                alert("Name for pipeline is required");
+                name.focus();
+                return false;
+            }
+            
+            var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+              if (GCS_project_name.value.match(specialChars)) {
+                alert ("Only characters A-Z, a-z and 0-9 are allowed!")
+                name.focus();
+                return false;
+            }
+            if(GCS_project_name.value.length < 5) {
+                alert("Project name is required");
+                name.focus();
+                return false;
+            }
+            var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+              if (GCS_bucket_name.value.match(specialChars)) {
+                alert ("Only characters A-Z, a-z and 0-9 are allowed!")
+                name.focus();
+                return false;
+            }
+            if(GCS_bucket_name.value.length < 5) {
+                alert("Bucket name is required");
+                name.focus();
+                return false;
+            }
+            var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+              if (Input_Cloud_Storage_Fie.value.match(specialChars)) {
+                alert ("Only characters A-Z, a-z and 0-9 are allowed!")
+                name.focus();
+                return false;
+            }
+            if(Input_Cloud_Storage_Fie.value.length < 5) {
+                alert("Cloud Storage is required");
+                name.focus();
+                return false;
+            }
+            var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+              if (GCS_Credentials.value.match(specialChars)) {
+                alert ("Only characters A-Z, a-z and 0-9 are allowed!")
+                name.focus();
+                return false;
+            }
+            if(GCS_Credentials.value.length < 5) {
+                alert("GCS Credentials is required");
+                name.focus();
+                return false;
+            }
+            var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+              if (Run_every.value.match(specialChars)) {
+                alert ("Only characters A-Z, a-z and 0-9 are allowed!")
+                name.focus();
+                return false;
+            }
+            if(Run_every.value.length < 5) {
+                alert("Run every is required");
+                name.focus();
+                return false;
+            }
+            // return false;
+            form.submit()
+                alert("Form submitted successfully.");
+            
+        }
+       
+    </script>
+</head>
+<body>
+    <form method="" action="" name="select_source" >
+    <p><b> Select your Source:|&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Google Cloud Storage</b><p>
+    <table>
+        <tr>
+            <td><label>Provie a name for <br>pipeline:|</label></td>
+            <td>
+                <input type="text" name="Provie_a_name_for_pipeline" placeholder="e.g.cust_shop_energy_gate way oo1">
+            </td>
+        </tr>
+        <tr>
+            <td><label>GCS project name:|</label></td>
+            <td>
+                <input type="text" name="GCS_project_name" placeholder="project ID">
+            </td>
+        </tr>
+        <tr>
+            <td><label>GCS bucket name:|</label></td>
+            <td>
+                <input type="text" name="GCS_bucket_name" placeholder="gs:// your bucket">
+            </td>
+        </tr>
+        <tr>
+            <td><label>Input Cloud Storage <br>Fie(s):|</label></td>
+            <td>
+                <input type="text" name="Input_Cloud_Storage_Fie" placeholder="GCS location of your files">
+            </td>
+        </tr>
+        <tr>
+            <td><label>GCS Credentials:|</label></td>
+            <td><input type="text" name="GCS_Credentials">
+            </td>
+        </tr>
+        <tr>
+            <td><label>Run every:|</label></td>
+            <td><input type="text" name="Run_every" placeholder="(in minute)">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="position: relative; left: -109px;">
+                <button type="button" onclick="return validate()">Create</button>
+                <button  type="reset" >Cancel</button>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
